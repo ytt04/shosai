@@ -52,7 +52,7 @@ public class UploadFile {
 	public List<CrudProductos> guardarFile(MultipartFile path) throws IOException, CsvValidationException {
 		List<CrudProductos> lstProductos = new ArrayList<>();
 
-		String ruta = "D:/" + path.getOriginalFilename();
+		String ruta = "C:/cargas/" + path.getOriginalFilename();
 		File localFile = new File(ruta);
 		path.transferTo(localFile);
 
