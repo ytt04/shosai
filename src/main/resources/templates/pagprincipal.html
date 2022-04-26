@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/estilosprincipal.css}">
+        <link rel="icon" th:href="@{/img/logo2.png}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="@{/css/default.css}" />
+        <link rel="stylesheet" type="text/css" href="@{/css/component.css}" />
+        <script src="js/modernizr.custom.js"></script> 
+        <script src="https://kit.fontawesome.com/4d9590b635.js" crossorigin="anonymous"></script>
+        <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+        <script src ="https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+        <link rel="stylesheet" href="modal.js">
+        <title>Shosai SYS</title>
+
+    </head>
+    <header>
+        <div class="contenedorSuperior">
+            <div class="espacio">
+                <div class="logo">
+                    <img src="../img/logo.png">
+                </div>
+            </div>
+            <section class="wrapper">
+                <nav>
+                    <ul>
+                        <li><a href="#">INICIO</a></li>
+                        <li><a href="#producto">PRODUCTOS</a></li>
+
+                        <li><a href="#contacto">CONTÁCTENOS</a></li>
+                        <li><a th:href="@{/index}">INGRESAR <i class="fas fa-sign-in-alt"></i></a></li>
+                    </ul>
+                </nav>
+            </section>
+
+        </div>
+    </header>
+    <div class="titulo">   </div>
+    <body>
+        <!-- banner -->
+        <div class="banner">
+            <img src="../img/banner.png">
+        </div>
+        <!-- barra de navegacion -->
+
+
+        <!-- contenido -->
+
+        <main>
+
+            <div class="mainimagen">
+
+
+
+                <!-- carrusel -->
+
+
+
+                <div class="contenedor_carrusel">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 60%">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../img/desyuno2.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/ancheta8.jpeg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/desyuno1.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../img/ancheta13.jpeg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- ----------------- -->
+
+            </div>
+
+
+
+
+            <div class="mainaside" >
+
+                <a name="inicio"></a>
+                <h1>¡BIENVENIDOS!</h1>
+
+                <p>Tenemos el detalle perfecto, para esa persona tan especial en tu vida, somos especialistas en hacer magia con los detalles. Por eso sabemos el valor sentimental que puede tener un obsequio, por eso cuidamos cada detalle para que sea inolvidable.</p>
+                <p>Lazos, listones, globos, confeti, todo lo que quieras para que tu regalo luzca fabuloso, lo encontraras con nosotros. Que el envoltorio de tu regalo, refleje el amor por esa persona.</p>
+
+
+
+            </div>
+            <br>
+
+        </main>
+
+
+
+
+        <!-- seccion y articulos de contenido -->
+        <h2><div class="titulo" id="producto">PRODUCTOS</div></h2>
+        <section>
+
+            <article>
+                <h3 class="subtitulo">ANCHETAS</h3>
+
+                <div class="artimagen"><img src="../img/ancheta4.jpeg"></div>
+
+                <p>Con nosotros podrás encontrar las mejores anchetas para regalarle a esa persona especial, tenemosa gran variedad también podrás diseñar y crear la ancheta a tu gusto con todos los productos que encuentres en nuestra tienda, ven, anímate y regálale a esa persona especial una ancheta especial..</p>
+
+                <div class="linkart"><a th:href="@{/productos}">Ver más...</a></div>
+            </article>
+
+            <article>
+                <h3 class="subtitulo">DETALLES</h3>
+
+                <div class="artimagen"><img src="../img/desayuno3.jpg"></div>
+
+                <p>En nuestra sección de detalles podrás encontrar una gran variedad de decoración para esas fechas especiales, para esa persona especial. Podrás encontrar desde decoración para niños como también para adultos y cada uno con una gran variedad de temáticas distintas.</p>
+                <br>
+
+                <div class="linkart"><a th:href="@{/productos}">Ver más...</a></div>
+            </article>
+
+            <article>
+                <h3 class="subtitulo">REGALOS</h3>
+
+                <div class="artimagen"><img src="../img/ancheta3.jpeg"></div>
+
+                <p>Con nosotros encontraras el regalo que buscas ya que tenemos gran variedad de regalos para todas las edades, desde niños hasta adultos, también te podremos asesorar para que elijas el regalo perfecto para esa persona ideal para ti.</p>
+                <br>
+                <br>
+                <div class="linkart"><a th:href="@{/productos}">Ver más...</a></div>
+            </article>
+        </section>
+
+    </div>
+    <!-- ----------------------------------- -->
+
+
+
+    <!-- ------------------------------------------------- -->
+    <!-- QUIENE SOMOS -->
+    <a name="quienessomos"></a>
+    <h2><div class="titulo">¿QUIENES SOMOS?</div></h2>
+    <section>
+        <article>
+            <h3 class="subtitulo">MISIÓN</h3>
+
+            <p>Trabajar con pasión y delicadeza en el detalle, para ofrecer los mejores obsequios a un mercado que disfruta del valor de la expresión de afecto a través de un detalle inolvidable, con productos de alta calidad que satisfagan todas las expectativas de nuestros clientes.</p>
+
+        </article>
+
+        <article>
+            <h3 class="subtitulo">NUESTRA EMPRESA</h3>
+
+            <div class="artimg"><img src="../img/local.jpeg"></div>
+
+        </article>
+
+        <article>
+            <h3 class="subtitulo">VISIÓN</h3>
+
+            <p>Establecernos como una empresa sólida y líder que permita ser la mejor opción del mercado Colombiano para realizar el envío de detalles inolvidables.</p>
+        </article>
+    </section>
+
+
+    <!-- contactenos -->
+    <a name="contacto"></a>
+    <div class="borde titulo">
+        <h2>CONTÁCTENOS</h2>
+    </div>
+
+
+    <!-- FORMULARIOS -->
+
+
+    <section class="contactenos">
+        <div class="borde div-contacto">
+            <P class="text-center"><strong></strong></P>
+            <!-- -------------------------------------------- -->
+            <form method="POST" th:action="@{/sendMail}" id="emailForm" class="container">
+                <h1 style="text-align: center;">Enviar e-mail</h1>
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon "><i class="fa fa-fw fa-user" aria-hidden="true"></i></div>
+                        <input type="text" class="form-control" name="name" id="nombre" placeholder="Nombre"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Correo:</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon">@</div>
+                        <input type="text" class="form-control" id="correo" name="mail" placeholder="Correo electónico"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Asunto:</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon"><i class="fa fa-fw fa-envelope-open" aria-hidden="true"></i></div>
+                        <input type="text" class="form-control" name="subject" id="asunto" placeholder="Asunto"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mensaje:</label>
+                    <textarea class="form-control" rows="4" name="body" id="mensaje"></textarea>
+                </div>
+                <br>
+                <div style="margin-bottom: 10px">
+                    <button type="submit" class="btn btn-danger" onclick="envios()">Enviar</button>
+                </div>
+            </form>
+
+        </div>
+
+        <!-- informacion de la empresa -->
+        <div class="borde div-contacto">
+            <!-- mapa -->
+
+            <div class="borde div-arriba">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.3477843470505!2d-74.12045897083784!3d4.523350136722429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3fa2213488a10f%3A0x1e7bb1ffe508c668!2sCl.%2069f%20Sur%20%2314c20%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1624259816538!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <!-- informacion -->
+            <div class="borde div-abajo">
+                <p>Direccion: Cll 69 f Sur # 14 c 84
+                    La aurora usme</p>
+                <p>Telefono: 3208861340</p>
+                <p>www.facebook.com/inspira.sas.7</p>
+                <p>Bogota</p>
+
+                <!-- <img class="icono" src="../img/ancheta16.jpeg">
+                -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2022 | Todos los derechos reservados
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/classie.js"></script>
+    <script src="js/modalEffects.js"></script>
+
+    <!-- for the blur effect -->
+    <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+    <script>
+                        // this is important for IEs
+                        var polyfilter_scriptpath = '/js/';
+    </script>
+    <script src="js/cssParser.js"></script>
+    <script src="js/css-filters-polyfill.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script>
+                        function abrir() {
+                            document.getElementById('vent').style.display = "block";
+                        }
+
+                        function cerrar() {
+                            document.getElementById('vent').style.display = "none";
+                        }
+    </script>
+
+    <script src="../js/validar-correo.js"></script>
+</body>
+</html>

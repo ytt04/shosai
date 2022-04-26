@@ -1,0 +1,73 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+body{
+	background: rgb(238,174,220);
+	background: radial-gradient(circle, rgba(238,174,220,0.8589810924369747) 21%, rgba(123,193,190,0.8309698879551821) 86%);
+	padding: 65px;
+}
+.icono{
+	width: 50px;
+	height: 50px;
+	display: flex;
+	text-align: center;
+	border-top-left-radius: 500px;
+}
+h1{
+	text-align: center;
+}
+.caja{
+	display: flex;
+	width: 500px;
+	height: 92%;
+	background-color: pink;
+	border-radius: 15px;
+	margin: auto;
+	border-bottom: 5px solid #EF1327;
+	color: #ffffff;
+	justify-content: space-between;
+
+}
+.registro{
+	padding: 15px 20px;
+}
+input{
+	padding: 15px;
+	margin-bottom: 15px;
+    border-radius: 3px;
+    font-size: 16px;
+    box-shadow: 0px 3px darkgray;
+    border: none;
+    border-radius: 22px;
+    display: inline-block;
+}
+.type50{
+	width: 49%;
+}
+.type100{
+	width: 100%;
+}
+.boton{
+	background: #7bc1be; ;
+	color: #fff;
+	padding: 10px 25px 10px 25px;
+	font-size: 20px;
+	border-radius: 16px;
+	cursor: pointer;
+	text-align: center;
+	box-decoration-break: none;
+	border: none;
+}
+.boton:active{
+	transform: scale(1.05);
+}
+.boton:hover{
+	background-color: purple;
+}
+p{
+	padding: 9px;
+	text-align: center;
+}

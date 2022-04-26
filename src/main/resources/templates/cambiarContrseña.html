@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="../img/logo2.png">
+    <link rel="stylesheet" href="../css/estilocont.css">
+    <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+</head>
+<body>
+
+        <main>
+
+            <div class="contenedor__todo">
+                <div class="caja__trasera">
+                    <div class="caja__trasera-login">
+                        <h3>¿Ya tienes una cuenta?</h3>
+                        <p>Inicia sesión para entrar en la página</p>
+                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                    </div>
+                    <div class="caja__trasera-register">
+                        <h3>Solicita el codigo</h3>
+                        <p>Ingresa tu correo para verificar que si eres tú</p>
+
+                        <button onClick="cod()">obtener Codigo</button>
+                    </div>
+                </div>
+                <script>
+                  function cod(){
+                    swal({
+                      button: "Enviar!",
+                      content: {
+                        element: "input",
+                        attributes: {
+                          placeholder: "Ingrese su Correo",
+                          type: "text",
+                        },
+                      },
+                    });
+                 }
+                </script>
+
+                <!--Formulario de Login y registro-->
+                <div class="contenedor__login-register">
+                    <!--Login-->
+                    <form name="login"> 
+                     <table width="350" border="0"> 
+                       <tr> 
+                        <h2>Recupere contraseña</h2>
+                         <td><span class="cnt"> 
+                           <input name="usuario" type="text" class="Input" value="" size="110" placeholder="Ingrese el codigo de Confirmación" required /> 
+                         </span></td> 
+                       </tr> 
+                       <tr> 
+                         <td><span class="cnt"> 
+                           <input name="password" type="password" class="Input" value="" size="20" placeholder="Ingrese nueva contraseña" required /> 
+                         </span></td> 
+                         <tr><td><br></td></tr>
+
+                         <th><span class="cnt"> 
+                           <input value="Entrar" target="_parent" onclick="Login()" type="button" class="boton" style="background-color:rgba(126, 183, 216)"; /> 
+                         </span></td> 
+                       </tr>  
+                     </table> 
+                </form>
+                    <!--Register-->
+                    <form action="" class="formulario__register">
+                        
+                    </form>
+                </div>
+            </div>
+
+        </main>
+
+        <script src="../js/script.js"></script>
+        <script language="JavaScript"> 
+          function Login(){ 
+          var done=0; 
+          var usuario=document.login.usuario.value; 
+          var password=document.login.password.value; 
+          if (usuario=="administrador" && password=="12345") { 
+          window.location="index.html"; 
+          }
+          } 
+        </script> 
+</body>
+</html>

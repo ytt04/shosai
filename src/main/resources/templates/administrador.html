@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/diseño_admi.css}">
+        <script src="https://kit.fontawesome.com/4d9590b635.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="../img/logo2.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+        <title>ADMINISTRADOR</title>
+        <link href="ZenLoop-Italic.ttf" rel="stylesheets">
+        <link rel="stylesheet" href="../static/css/estilosprincipal.css" type="text/css"/>
+        <link rel="stylesheet" href="../static/css/tabladiseño1.css" type="text/css">
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="contenedorSuperior">
+                <div class="espacio">
+                    <div class="logo">
+                        <img src="../img/logo.png">
+                    </div>
+                </div>
+                <section class="wrapper">
+
+                    <nav>
+                        <ul class="menu" style="background-color: #fff;">
+                            <li><a href="#">INVENTARIOS</a>
+                                <ul class="submenu"> 
+                                    
+                                    <li><a th:href="@{/registroProducto}">REGISTRAR PRODUCTOS</a> </li>
+                                    <li><a th:href="@{/crudProductos}">VER INVENTARIO</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">VENTAS</a>
+                                <ul class="submenu">
+                                    <li><a th:href="@{/reporteMens}">REPORTE MENSUAL</a></li>
+                                    <li><a th:href="@{/informeVenta }">INFORME VENTA</a></li>
+                                </ul>
+                            </li>
+                            <li><a th:href="@{/registroEmpleados}">USUARIOS </a></li>
+                            <li><a th:href="@{/index}">CERRAR SESIÓN <i class="fas fa-sign-in-alt"></i></a></li>
+                        </ul>
+                    </nav>
+                </section>
+
+            </div>
+        </header>
+        <div class="titulo">   </div>
+
+        <!-- menu lateral -->
+
+
+        <section> 
+            <div class="izquierda">
+                <canvas id="grafico" width="400" height="400"></canvas>
+            </div>
+
+            <div class="derecha">
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Reportes
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <strong>Reporte</strong> En el grafico se pueden ver el total de ventas realizadas semanalmente de acuerdo a los registros ingresados.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                Inventarios
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body">
+                                <strong>Inventarios</strong> Se maneja el inventario totalizado de los productos que se manejan en la empresa Inspira.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                Ventas
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                            <div class="accordion-body">
+                                <strong>Venta</strong> Se lleva un total de las ventas realizadas para asi poder llevar un balance ingreso egreso de acuerdo a los gastos y entradas de la microempresa.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- footer -->
+
+   <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2022 | Todos los derechos reservados
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
+    
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script>
+            var ctx = document.getElementById("grafico").getContext("2d");
+            var myChart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'],
+                    datasets: [{
+                            label: 'Ventas Diarias',
+                            data: [98, 80, 60, 85, 90],
+                            backgroundColor: [
+                                'rgb(25, 12, 562)',
+                                'rgba(185, 112, 227, 1)',
+                                'rgba(112, 227, 204, 1)',
+                                'rgba(227, 112, 132, 1)',
+                                'rgba(131, 200, 130, 1)'
+                            ],
+                            borderWidth: 2
+
+                        }]
+
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                    }
+                }
+            });
+
+        </script>
+
+    </body>
+</html>

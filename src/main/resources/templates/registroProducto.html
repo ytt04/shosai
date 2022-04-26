@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="icon" href="../img/logo2.png">
+
+        <link rel="stylesheet" th:href="@{/css/estiloproducto.css}">
+        <title>REGISTRO PRODUCTO</title>
+    </head>
+    <body>
+        <header>
+            <div class="contenedorSuperior">
+                <div class="espacio">
+                    <div class="logo">
+                        <img src="../img/logo.png">
+                    </div>
+                </div>
+                <section class="wrapper">
+                    <nav>
+                        <ul>
+                            <li><a th:href="@{/administrador}">VOLVER</a></li>
+                        </ul>
+                    </nav>
+                </section>
+
+            </div>
+        </header>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="container">
+            <h1>Registro Productos</h1>
+            <form method="POST" th:action="@{/guardarProducto}" th:object =${crudProductos}>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Id Producto</label>
+                    <input type="number" class="form-control"   th:field="*{idproducto}" id="producto" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Nombre Producto</label>
+                    <input type="text" class="form-control"  th:field="*{nombreproducto}" id="nproducto" required >
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Cantidad Ingresada</label>
+                    <input type="number" class="form-control" th:field="*{cantidadproducto}" id="cantidad" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Precio Producto</label>
+                    <input type="number" class="form-control" th:field="*{precioproducto}" id="precio" required>
+                </div>
+
+                <div class="mb-3">
+                    <label  class="form-label">Tipo de Inventario:</label>
+                    <select class="form-select"  th:field="*{inventarios}" id="seleccion" required>
+                        <option  th:each="inventarioItem : ${lstInventarios}"  th:value="${inventarioItem.id_inventarios}" th:text="${inventarioItem.nombre_inventario}"></option>
+
+                    </select>
+                </div> 
+
+
+
+                <button type="submit" class="btn btn-primary" onclick="guadar()">Guardar</button>
+
+            </form>
+        </div>
+
+        <!-- footer -->
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                </div>
+                <hr>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <p class="copyright-text">Copyright &copy; 2022 | Todos los derechos reservados
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="social-icons">
+                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="../js/formulario-validacion-producto.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        -->
+
+    </body>
+</html>

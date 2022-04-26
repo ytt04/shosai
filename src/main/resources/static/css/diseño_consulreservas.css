@@ -1,0 +1,177 @@
+*{
+
+    margin:0px;
+}
+
+header{
+    background: #f8f9fa;
+    display: flex;
+    /*align-items: center;
+    justify-content: space-between;*/
+    box-shadow: 2px 3px rgba(246, 130, 242, 0.2);
+    flex-direction: column; 
+}
+
+.contenedorSuperior{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logosis{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+header img{
+    width: auto;
+    height: 68px;
+}
+
+.opcionesHeader{
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: initial;
+    justify-content: center;
+    margin: 10px;
+    transition: border-bottom .2s;
+    cursor: pointer;
+}
+.dropdown{
+    margin: 10px 20px;
+}
+
+.espacio{
+    width: 20%;
+    display: flex;
+    padding: 25px;
+    height: 80px;
+    align-items: center;
+}
+
+.espacio a:hover{
+    color: rgba(129, 57, 163);
+}
+.bg-light {
+    background-color: #fff!important;
+}
+.navbar-expand-lg .navbar-collapse{
+    justify-content: center;
+}
+.contenedorInferior{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.dropdown-menu a:hover{
+    background-color:rgba(129, 57, 163, 0.5)!important;
+    color: black !important;
+}
+
+.nav-link {
+    padding: 0 !important;
+    color: black !important;
+    border-bottom: 3px solid transparent;
+}
+.nav-link:hover{
+    color: rgba(129, 57, 163) !important;
+    border-bottom: 3px solid rgba(129, 57, 163);
+}
+
+
+header p{
+    font-size: 40px;
+}
+
+body{
+    background: rgba(238, 205, 238, 0.5) !important;
+}
+
+header a{
+    text-decoration: none;
+    color: #000;
+    padding-right: 13px;
+    font-family:
+        font-size: 30px;
+}
+
+header a:hover{
+    color: #fff;
+}
+
+main{
+    display: flex;
+    padding: 2px;
+}
+
+/* formularios */
+
+form{
+    margin: 10px;
+    display: block;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 15px; 
+    background-color: rgba(129, 57, 163, 0.2);
+    box-sizing: border-box;
+}
+
+.izquierda{
+    height: auto;
+    width: 40%;
+}
+
+.derecha{
+    height: auto;
+    width: 60%;
+}
+.producto{
+    display: flex;
+}
+
+button{
+    background: #CA17AC;
+    border:none;
+    border-radius: 18px;
+    padding: 2px 8px;
+    border-style: hidden;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: purple;
+}
+@media screen and (max-width: 700px){
+    .category_list{
+        flex-direction: column;
+    }
+    .category_list .category_item{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 600px){
+
+    .products-list .product-item{
+        width: 47.5%;
+    }
+
+    .products-list .product-item:nth-child(3n+1){
+        margin-left: 4.5%;
+    }
+
+    .products-list .product-item:nth-child(2n+1){
+        margin-left: 0px;
+    }
+
+}
+
+@media screen and (max-width: 350px){
+    .products-list .product_item{
+        width: 100%;
+        margin-left: 0px;
+    }
+}
