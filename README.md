@@ -1,2 +1,2 @@
 # shosaiSena
-Proyecto final Sena ADSI
+Proyecto final
