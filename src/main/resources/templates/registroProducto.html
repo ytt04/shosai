@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -41,33 +41,28 @@
 
         <div class="container">
             <h1>Registro Productos</h1>
-            <form method="POST" th:action="@{/guardarProducto}" th:object =${crudProductos}>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Id Producto</label>
-                    <input type="number" class="form-control"   th:field="*{idproducto}" id="producto" required>
-                </div>
+            <form method="POST" th:action="@{/guardarProducto}" th:object=${crudProductos}>
+                  <input type="text" th:field="*{id_producto}" hidden="true"/>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nombre Producto</label>
-                    <input type="text" class="form-control"  th:field="*{nombreproducto}" id="nproducto" required >
+                    <input type="text" class="form-control"  th:field="*{nombre_producto}" id="producto" required >
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Cantidad Ingresada</label>
-                    <input type="number" class="form-control" th:field="*{cantidadproducto}" id="cantidad" required>
+                    <input type="number" class="form-control" th:field="*{cantidad_producto}" id="cantidad" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Precio Producto</label>
-                    <input type="number" class="form-control" th:field="*{precioproducto}" id="precio" required>
+                    <input type="number" class="form-control" th:field="*{precio_producto}" id="precio" required>
                 </div>
-
                 <div class="mb-3">
-                    <label  class="form-label">Tipo de Inventario:</label>
-                    <select class="form-select"  th:field="*{inventarios}" id="seleccion" required>
-                        <option  th:each="inventarioItem : ${lstInventarios}"  th:value="${inventarioItem.id_inventarios}" th:text="${inventarioItem.nombre_inventario}"></option>
-
-                    </select>
-                </div> 
-
-
+                    <label for="exampleInputPassword1" class="form-label">Estado Producto</label>
+                    
+                    <select th:field="*{estado_producto}" class="form-select" name="estado" id="estado" required>        
+                              <option selected value="ACTIVO"> ACTIVO</option>
+                              <option value="INACTIVO"> INACTIVO</option>
+                            </select>
+                </div>
 
                 <button type="submit" class="btn btn-primary" onclick="guadar()">Guardar</button>
 

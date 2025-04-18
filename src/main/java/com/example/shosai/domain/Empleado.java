@@ -17,7 +17,6 @@ import lombok.Data;
  * @author YURLEY
  */
 @Entity
-@Data
 @Table(name= "empleado")
 public class Empleado {
     
@@ -28,6 +27,43 @@ public class Empleado {
     @ManyToOne
     @JoinColumn(name="USUARIO_identificaion")
     private Usuario usuario;
+
+	public Empleado() {
+		super();
+	}
+
+	public Empleado(Integer id_empelado, String cargo, Usuario usuario) {
+		super();
+		this.id_empelado = id_empelado;
+		this.cargo = cargo;
+		this.usuario = usuario;
+	}
+
+	public Integer getId_empelado() {
+		return id_empelado;
+	}
+
+	public void setId_empelado(Integer id_empelado) {
+		this.id_empelado = id_empelado;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+    
+    
     
     
     

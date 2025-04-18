@@ -17,9 +17,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Data
-@Getter
-@Setter
+
 
 @Table(name="usuario")
 public class Usuario{
@@ -40,6 +38,96 @@ public class Usuario{
             joinColumns = {@JoinColumn(name="usuario_identificaion")},
             inverseJoinColumns = {@JoinColumn(name="rol_idrol") })
     private List<Rol> roles;
+
+	public Usuario() {
+		super();
+	}
+
+	public Usuario(Integer identificaion, String telefono, String nombres, String apellidos, String correo,
+			Date fecha_nacimiento, Integer edad, String clave, List<Rol> roles) {
+		super();
+		this.identificaion = identificaion;
+		this.telefono = telefono;
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.correo = correo;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.edad = edad;
+		this.clave = clave;
+		this.roles = roles;
+	}
+
+	public Integer getIdentificaion() {
+		return identificaion;
+	}
+
+	public void setIdentificaion(Integer identificaion) {
+		this.identificaion = identificaion;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getNombres() {
+		return nombres;
+	}
+
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
+	public List<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
+	}
     
     
       

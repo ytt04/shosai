@@ -1,7 +1,6 @@
 package com.example.shosai.controller;
 
 import com.example.shosai.Dao.RolDao;
-import com.example.shosai.domain.DatosUsuario;
 import com.example.shosai.Dao.UsuarioDao;
 import com.example.shosai.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +45,11 @@ public class loginController {
         Usuario validar = usuarioDaoLogin.findByIdentificaionAndClave(usuario.getIdentificaion(), usuario.getClave());
         if (validar == null) {
             return "redirect:/index";
-        } else if (validar.getRoles().get(0).getNombrerol().equals("ADMINISTRADOR")) {
+        } else if (validar.getRoles().get(0).getIdrol().equals("a1")){
             return "administrador";
-        } else if (validar.getRoles().get(0).getNombrerol().equals("EMPLEADO")) {
+        } else if (validar.getRoles().get(0).getIdrol().equals("e1")) {
             return "empleado";
-        } else if (validar.getRoles().get(0).getNombrerol().equals("CLIENTE")) {
+        } else if (validar.getRoles().get(0).getIdrol().equals("c1")) {
             return "cliente";
         }
         return "redirect:/login";

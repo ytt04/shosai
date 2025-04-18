@@ -23,16 +23,10 @@ public class principalController {
     public String cliente() {
         return "cliente";
     }
-    
 
-   
     @GetMapping("/empleado")
     public String empleado() {
         return "empleado";
     }
-    
-  
-    
-  
 
 }
