@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.shosai.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
- 
+
 import com.example.shosai.Dao.ProductosRepository;
 import com.example.shosai.Dao.ProductosVendidosRepository;
 import com.example.shosai.Dao.VentasRepository;
@@ -18,24 +13,22 @@ import com.example.shosai.domain.Producto;
 import com.example.shosai.domain.ProductoParaVender;
 import com.example.shosai.domain.ProductoVendido;
 import com.example.shosai.domain.Venta;
- 
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
-/**
- *
- * @author HP
- */
+import java.util.List;
+
 @Controller
 @RequestMapping(path = "/vender")
 public class VenderController {
-    
-       @Autowired
+
+    @Autowired
     private ProductosRepository productosRepository;
     @Autowired
     private VentasRepository ventasRepository;
     @Autowired
     private ProductosVendidosRepository productosVendidosRepository;
- 
+
     @PostMapping(value = "/quitar/{indice}")
     public String quitarDelCarrito(@PathVariable int indice, HttpServletRequest request) {
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);
@@ -45,11 +38,11 @@ public class VenderController {
         }
         return "redirect:/vender/";
     }
- 
+
     private void limpiarCarrito(HttpServletRequest request) {
         this.guardarCarrito(new ArrayList<>(), request);
     }
- 
+
     @GetMapping(value = "/limpiar")
     public String cancelarVenta(HttpServletRequest request, RedirectAttributes redirectAttrs) {
         this.limpiarCarrito(request);
@@ -58,7 +51,7 @@ public class VenderController {
                 .addFlashAttribute("clase", "info");
         return "redirect:/vender/";
     }
- 
+
     @PostMapping(value = "/terminar")
     public String terminarVenta(HttpServletRequest request, RedirectAttributes redirectAttrs) {
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);
@@ -71,8 +64,9 @@ public class VenderController {
         for (ProductoParaVender productoParaVender : carrito) {
             // Obtener el producto fresco desde la base de datos
             Producto p = productosRepository.findById(productoParaVender.getId()).orElse(null);
-            if (p == null) continue; // Si es nulo o no existe, ignoramos el siguiente código con continue
-            // Le restamos existencia
+            if (p == null) {
+                continue; // Si es nulo o no existe, ignoramos el siguiente código con continue
+            }            // Le restamos existencia
             p.restarExistencia(productoParaVender.getCantidad());
             // Lo guardamos con la existencia ya restada
             productosRepository.save(p);
@@ -81,7 +75,7 @@ public class VenderController {
             // Y lo guardamos
             productosVendidosRepository.save(productoVendido);
         }
- 
+
         // Al final limpiamos el carrito
         this.limpiarCarrito(request);
         // e indicamos una venta exitosa
@@ -90,17 +84,23 @@ public class VenderController {
                 .addFlashAttribute("clase", "success");
         return "redirect:/vender/";
     }
- 
+
     @GetMapping(value = "/")
     public String interfazVender(Model model, HttpServletRequest request) {
+
+        List<Producto> listarProductosPRO = (List<Producto>) productosRepository.findAll();
+        model.addAttribute("listarProductosPRO", listarProductosPRO);
+
         model.addAttribute("producto", new Producto());
         float total = 0;
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);
-        for (ProductoParaVender p: carrito) total += p.getTotal();
+        for (ProductoParaVender p : carrito) {
+            total += p.getTotal();
+        }
         model.addAttribute("total", total);
         return "vender/vender";
     }
- 
+
     private ArrayList<ProductoParaVender> obtenerCarrito(HttpServletRequest request) {
         ArrayList<ProductoParaVender> carrito = (ArrayList<ProductoParaVender>) request.getSession().getAttribute("carrito");
         if (carrito == null) {
@@ -108,11 +108,11 @@ public class VenderController {
         }
         return carrito;
     }
- 
+
     private void guardarCarrito(ArrayList<ProductoParaVender> carrito, HttpServletRequest request) {
         request.getSession().setAttribute("carrito", carrito);
     }
- 
+
     @PostMapping(value = "/agregar")
     public String agregarAlCarrito(@ModelAttribute Producto producto, HttpServletRequest request, RedirectAttributes redirectAttrs) {
         ArrayList<ProductoParaVender> carrito = this.obtenerCarrito(request);
@@ -132,19 +132,19 @@ public class VenderController {
         boolean encontrado = false;
         for (ProductoParaVender productoParaVenderActual : carrito) {
             if (productoParaVenderActual.getCodigo().equals(productoBuscadoPorCodigo.getCodigo())) {
-            	if (productoBuscadoPorCodigo.noStock(productoParaVenderActual.getCantidad()+1)) {
-					redirectAttrs
-				            .addFlashAttribute("mensaje", "Stock limite del producto alcanzados")
-				            .addFlashAttribute("clase", "danger");
-						return "redirect:/vender/";
-				}
-            	productoParaVenderActual.aumentarCantidad();
+                if (productoBuscadoPorCodigo.noStock(productoParaVenderActual.getCantidad() + 1)) {
+                    redirectAttrs
+                            .addFlashAttribute("mensaje", "Stock limite del producto alcanzados")
+                            .addFlashAttribute("clase", "danger");
+                    return "redirect:/vender/";
+                }
+                productoParaVenderActual.aumentarCantidad();
                 encontrado = true;
                 break;
             }
         }
         if (!encontrado) {
-        	Float cantidad = Float.parseFloat(request.getParameter("cantidad"));
+            Float cantidad = Float.parseFloat(request.getParameter("cantidad"));
             carrito.add(new ProductoParaVender(productoBuscadoPorCodigo.getNombre(), productoBuscadoPorCodigo.getCodigo(), productoBuscadoPorCodigo.getPrecio(), productoBuscadoPorCodigo.getExistencia(), productoBuscadoPorCodigo.getId(), cantidad));
         }
         this.guardarCarrito(carrito, request);
