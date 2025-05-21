@@ -18,13 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
  
- /**
- *
- * @author djped
- */
 @Controller
 @RequestMapping(path = "/productos")
 public class ProductosController {
+ 
     @Autowired
     private ProductosRepository productosRepository;
  
@@ -54,7 +51,7 @@ public class ProductosController {
     // los errores en lugar de hacer un redirect, ya que si hago un redirect, no se muestran los errores del formulario
     // y por eso regreso mejor la vista ;)
     @PostMapping(value = "/editar/{id}")
-    public String actualizarProducto(@ModelAttribute  Producto producto, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
+    public String actualizarProducto(@ModelAttribute Producto producto, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
         if (bindingResult.hasErrors()) {
             if (producto.getId() != null) {
                 return "productos/editar_producto";
@@ -83,7 +80,7 @@ public class ProductosController {
     }
  
     @PostMapping(value = "/agregar")
-    public String guardarProducto(@ModelAttribute  Producto producto, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
+    public String guardarProducto(@ModelAttribute Producto producto, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
         if (bindingResult.hasErrors()) {
             return "productos/agregar_producto";
         }
@@ -99,15 +96,24 @@ public class ProductosController {
                 .addFlashAttribute("clase", "success");
         return "redirect:/productos/agregar";
     }
-   //@RequestMapping("/uploadFile")
-     @PostMapping(value="productos/uploadFile")
-    public String saveFileExcel(MultipartFile file, Model model) throws IOException, CsvValidationException {
-        UploadFile upl = new UploadFile();
-        List<Producto> lstProducto = upl.guardarFile(file);
  
-        this.productosRepository.saveAll(lstProducto);
+    //@RequestMapping("/uploadFile")
+    @PostMapping(value = "productos/uploadFile")
+    public String saveFileExcel(MultipartFile file, Model model,RedirectAttributes redirectAttrs) throws IOException, CsvValidationException {
+        try{
+        UploadFile upl = new UploadFile();
+        List<Producto> producto = upl.guardarFile(file);
+ 
+        this.productosRepository.saveAll(producto);
  
         return "redirect:/productos/mostrar";
+        }
+        catch(Exception e){
+             redirectAttrs
+                .addFlashAttribute("mensaje", "Seleccione un archivo para continuar")
+                .addFlashAttribute("clase", "danger");
+            return "redirect:/productos/mostrar";
+        }
     }
  
     public void exportarReporte(HttpServletRequest request, HttpServletResponse response)
@@ -115,4 +121,3 @@ public class ProductosController {
  
     }
 }
- 

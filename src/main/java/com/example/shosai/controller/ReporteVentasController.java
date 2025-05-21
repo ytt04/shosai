@@ -21,11 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  
  
 import net.sf.jasperreports.engine.JRException;
-
-/**
- *
- * @author djped
- */
+ 
 @RestController
 @RequestMapping("/report")
 public class ReporteVentasController {
@@ -33,22 +29,7 @@ public class ReporteVentasController {
 	@Autowired
 	private ReporteVentasServiceAPI reporteVentasServiceAPI;
  
-	@GetMapping(path = "/ventas/ReporteVentas")
-	public ResponseEntity<Resource> download(@RequestParam Map<String, Object> params)
-			throws JRException, IOException, SQLException {
-		ReporteVentasDTO dto = reporteVentasServiceAPI.obtenerReporteVentas(params);
- 
-		InputStreamResource streamResource = new InputStreamResource(dto.getStream());
-		MediaType mediaType = null;
-		if (params.get("tipo").toString().equalsIgnoreCase(TipoReporteEnum.EXCEL.name())) {
-			mediaType = MediaType.APPLICATION_OCTET_STREAM;
-		} else {
-			mediaType = MediaType.APPLICATION_PDF;
-		}
- 
-		return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\"" + dto.getFileName() + "\"")
-				.contentLength(dto.getLength()).contentType(mediaType).body(streamResource);
-	}
+	
         @GetMapping(path = "/ventas/ReporteVentas1")
 	public ResponseEntity<Resource> download1(@RequestParam Map<String, Object> params)
 			throws JRException, IOException, SQLException {
@@ -113,7 +94,23 @@ public class ReporteVentasController {
 		return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\"" + dto.getFileName() + "\"")
 				.contentLength(dto.getLength()).contentType(mediaType).body(streamResource);
 	}
+              @GetMapping(path = "/ventas/ReporteVenta")
+	public ResponseEntity<Resource> download5 (@RequestParam Map<String, Object> params)
+			throws JRException, IOException, SQLException {
+		ReporteVentasDTO dto = reporteVentasServiceAPI.ReporteVenta(params);
+ 
+		InputStreamResource streamResource = new InputStreamResource(dto.getStream());
+		MediaType mediaType = null;
+		if (params.get("tipo").toString().equalsIgnoreCase(TipoReporteEnum.EXCEL.name())) {
+			mediaType = MediaType.APPLICATION_OCTET_STREAM;
+		} else {
+			mediaType = MediaType.APPLICATION_PDF;
+		}
+ 
+		return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\"" + dto.getFileName() + "\"")
+				.contentLength(dto.getLength()).contentType(mediaType).body(streamResource);
+	}
+ 
  
  
 }
- 
